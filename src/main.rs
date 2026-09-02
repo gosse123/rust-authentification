@@ -20,6 +20,7 @@ async fn main() {
         .init();
 
     let app = Router::new()
+        .route("/", get(home))
         .route("/protected", get(protected))
         .route("/authorize", post(authorize));
 
@@ -28,4 +29,8 @@ async fn main() {
         .unwrap();
     tracing::debug!("listening on {}", listener.local_addr().unwrap());
     axum::serve(listener, app).await.unwrap();
+}
+
+async fn home() -> &'static str {
+    "hello world"
 }
