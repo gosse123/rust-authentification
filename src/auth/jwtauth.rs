@@ -25,9 +25,10 @@ pub struct Claims {
 
 impl Display for Claims {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "Email: {}\nCompany: {}", self.sub, self.company)
-    }
+        write!(f, "Email: {}\nCompany: {}", self.sub, self.company)    }
 }
+
+
 
 impl AuthBody {
     pub fn new(access_token: String) -> Self {
